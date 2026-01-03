@@ -1,6 +1,5 @@
 import os
 import hashlib
-import zlib
 
 DING_DIR = ".ding"
 
@@ -66,10 +65,6 @@ def hash_objects(args):
 
     oid = hashlib.sha256(content).hexdigest()
     print(oid)
-    
-    # Compress the content using zlib before writing to disk
-    compressed_content = zlib.compress(content)
-    
     object_file_path = os.path.join(objects_path, oid)
     with open(object_file_path, "wb") as f:
-        f.write(compressed_content)
+        f.write(content)
