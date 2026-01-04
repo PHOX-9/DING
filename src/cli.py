@@ -1,7 +1,6 @@
 import argparse
 from src import data
 
-
 def init(args):
     data.init(args.path)
 
@@ -27,7 +26,7 @@ def parse_args():
     )
     init_parser.set_defaults(func=init)
 
-    hash_parser = commands.add_parser("hash", help="hashes the file and folders")
+    hash_parser = commands.add_parser("hash", help="hashes and stores the file")
     hash_parser.add_argument(
         "file", help="the file to be hashed"
     )

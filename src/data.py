@@ -1,5 +1,7 @@
 import os
 import hashlib
+import compression.zstd
+
 
 DING_DIR = ".ding"
 
@@ -49,6 +51,7 @@ def hash_objects(args):
     if repo is None:
         print("error: not inside a ding repository")
         return
+    
     ding_path = os.path.join(repo, DING_DIR)
 
     objects_path = os.path.join(ding_path, "objects")
@@ -65,6 +68,9 @@ def hash_objects(args):
 
     oid = hashlib.sha256(content).hexdigest()
     print(oid)
+
+    compressed_data = compression.zstd.compress(content)
+
     object_file_path = os.path.join(objects_path, oid)
     with open(object_file_path, "wb") as f:
-        f.write(content)
+        f.write(compressed_data)
