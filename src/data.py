@@ -1,6 +1,6 @@
 import os
 import hashlib
-from src.compression import zstd
+from compression import zstd
 import sys
 
 
