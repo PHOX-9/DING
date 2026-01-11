@@ -22,8 +22,4 @@ Successfully installed ding-1.0
 
 which means you are good to go
 
-You can also verify using 
-ding --help
-Help menu should be visible
-
 All done in 67 seconds ✧｡٩(ˊᗜˋ )و✧*｡
